@@ -27,3 +27,31 @@
 This analysis focuses on three main questions:
   1. Oldest Business on Each Continent
      This question aims to find the oldest company on each continent, which can provide an initial overview of the most resilient sectors geographically.
+-- What is the oldest business on each continent?
+SELECT 
+		b.business,
+		b.year_founded,
+		c.continent,
+		c.country
+FROM 
+	businesses AS b
+JOIN 
+	countries AS c
+ON b.country_code = c.country_code
+WHERE
+	(b.year_founded, c.continent) IN (
+	SELECT 
+	 MIN(year_founded),
+	 c2.continent
+	FROM
+	 businesses AS b2
+	JOIN
+	 countries AS c2 
+	ON b2.country_code = c2.country_code
+	GROUP BY
+	 c2.continent
+	)
+ORDER BY
+	c.continent, b.year_founded;
+
+	
