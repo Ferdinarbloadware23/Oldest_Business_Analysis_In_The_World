@@ -55,11 +55,12 @@ WHERE
 	)
 ORDER BY
 	c.continent, b.year_founded;
+```
 
 Out[1]:
 | business | year_founded | continent | country |
 | :--- | :--- | :--- | :--- |
-| Staffelter Hof Winery | 862 | Europe | Germany |
 | Kongō Gumi | 578 | Asia | Japan |
+| Staffelter Hof Winery | 862 | Europe | Germany |
 | Shirley Plantation | 1638 | North America | United States |
 	
